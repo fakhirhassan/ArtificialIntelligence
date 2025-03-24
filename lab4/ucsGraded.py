@@ -35,7 +35,7 @@ def UCS():
     goalState = 'Bucharest'
     
     romania_graph = {
-        'Arad': Node('Arad', None, [('Zerind', 75), ('Timisoara', 118), ('Sibiu', 140)], 0),
+        'Arad': Node('Arad', None, [('Zerind', 75), ('Timisoara', 118), ('Sibiu', 740)], 0),
         'Zerind': Node('Zerind', None, [('Arad', 75), ('Oradea', 71)], 0),
         'Oradea': Node('Oradea', None, [('Zerind', 71), ('Sibiu', 151)], 0),
         'Timisoara': Node('Timisoara', None, [('Arad', 118), ('Lugoj', 111)], 0),
@@ -44,7 +44,7 @@ def UCS():
         'Drobeta': Node('Drobeta', None, [('Mehadia', 75), ('Craiova', 120)], 0),
         'Craiova': Node('Craiova', None, [('Drobeta', 120), ('Pitesti', 138), ('Rimnicu Vilcea', 146)], 0),
         'Rimnicu Vilcea': Node('Rimnicu Vilcea', None, [('Craiova', 146), ('Pitesti', 97), ('Sibiu', 80)], 0),
-        'Sibiu': Node('Sibiu', None, [('Arad', 140), ('Oradea', 151), ('Rimnicu Vilcea', 80), ('Fagaras', 99)], 0),
+        'Sibiu': Node('Sibiu', None, [('Arad', 140), ('Oradea', 151), ('Rimnicu Vilcea', 80), ('Fagaras', 989)], 0),
         'Fagaras': Node('Fagaras', None, [('Sibiu', 99), ('Bucharest', 211)], 0),
         'Pitesti': Node('Pitesti', None, [('Craiova', 138), ('Rimnicu Vilcea', 97), ('Bucharest', 101)], 0),
         'Bucharest': Node('Bucharest', None, [('Fagaras', 211), ('Pitesti', 101), ('Giurgiu', 90), ('Urziceni', 85)], 0),

@@ -5,22 +5,9 @@ class Node:
         self.actions = actions
         self.totalCost = totalCost
 
-def actionSequence(romania_graph , initialState , goalstate ):
-        solution = [goalstate]
-        currentParent = romania_graph[goalstate].parent
-        while currentParent != None:
-            solution.append(currentParent)
-            currentParent = romania_graph[currentParent].parent
-        solution.reverse()
-        return solution
 
-def dfs():
-    initialstate = 'Arad'
-    goalstate = 'Bucharest'
-    frontier = [initialstate]
-    explored = []
 
-    romania_graph = {
+graph = {
     'M': Node('M', None, ['S', 'R','A'], None),
     'S': Node('S', None, ['M', 'E', 'R', 'A','T'], None),
     'E': Node('E', None, ['S', 'F', 'T', 'A','D'], None),
@@ -42,18 +29,27 @@ def dfs():
     'B': Node('B', None, ['F', 'E','N'], None)
 }
     
+listWord = ['START','NOTE', 'SAND', 'STONE1D']
+   
+def generateWords(graph, listWord):
+    valid_words = set()
 
-    while len(frontier) != 0:
-        currentNode = frontier.pop()
-        print (currentNode)
-        explored.append(currentNode)
-        for child in romania_graph[currentNode].actions:
-            if child not in frontier and child not in explored:
-                romania_graph[child].parent = currentNode
-                if child == goalstate:
-                    print(explored)
-                    return actionSequence(romania_graph, initialstate, goalstate)
-                frontier.append(child)
+    def dfs(currentNode, path, visited, current_word):
+        if current_word in listWord:
+            valid_words.add(current_word)
 
-solution = dfs()
-print(solution)
+        for child in graph[currentNode].actions:
+            if child not in visited:
+                visited.add(child)
+                dfs(child, path + [child], visited, current_word + graph[child].state)
+                visited.remove(child)
+
+    for node in graph:
+        dfs(node, [node], set([node]), graph[node].state)
+
+    return valid_words
+
+valid_words = generateWords(graph, listWord)
+print("Valid words found:", valid_words)
+
+
